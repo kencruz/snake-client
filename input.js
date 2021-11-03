@@ -34,6 +34,9 @@ const handleUserInput = function () {
       console.log("Move: right");
       connection.write("Move: right");
     }
+    if (key === "o") {
+      connection.write("Say: sneks and ladders");
+    }
   });
 };
 
