@@ -1,3 +1,4 @@
+const { PLAYER_MESSAGE } = require("./constants");
 // Stores the active TCP connection object.
 let connection;
 
@@ -6,8 +7,8 @@ const setupInput = function (conn) {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
-  stdin.on("data", handleUserInput);
   stdin.resume();
+  stdin.on("data", handleUserInput);
   return stdin;
 };
 
@@ -35,7 +36,7 @@ const handleUserInput = function () {
       connection.write("Move: right");
     }
     if (key === "o") {
-      connection.write("Say: sneks and ladders");
+      connection.write(`Say: ${PLAYER_MESSAGE}`);
     }
   });
 };
